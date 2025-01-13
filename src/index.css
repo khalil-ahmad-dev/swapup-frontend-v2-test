@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply font-Urbanist;
+  }
+
+  body {
+    @apply bg-background dark:bg-su_primary_bg text-foreground;
+  }
+
+  .su-px{
+    @apply px-6 lg:px-10
+  }
+
+  .nav-link {
+    @apply cursor-pointer relative after:absolute  after:content-[''] after:h-0.5 after:w-0 after:bg-gradient-primary after:-bottom-0.5 after:left-0 after:opacity-0 after:transition-all after:duration-200 after:delay-200
+  }
+  .nav-link:hover::after{
+    @apply opacity-100 w-full
+  }
+
+  .nav-link.active:hover::after{
+    @apply opacity-0 w-0
+  }
+
+  .nav-link.active {
+    @apply px-4 py-2 dark:bg-su_active_bg rounded-xs;
+  }
+
+  .gradient-button {
+    @apply bg-gradient-primary !rounded-full !font-bold flex items-center text-white disabled:text-su_disabled disabled:bg-gradient-to-r disabled:from-su_button_disabled disabled:to-su_button_disabled disabled:border-[1.5px] disabled:border-su_disabled;
+  }
+
+  .button-varient-outline {
+    @apply px-5 py-3 rounded-full border-2 border-su_disabled disabled:text-su_disabled bg-background dark:bg-su_secondary_bg text-foreground font-semibold text-sm capitalize
+  }
+
+  .disabled-gradient{
+    @apply bg-gradient-to-r from-su_disabled to-su_disabled
+  }
+
+  .link-style{
+    @apply font-semibold dark:text-su_primary hover:underline
+  }
+
+  .custom-border-card{
+    @apply border-[1.5px] border-su_active_bg rounded-md p-2 lg:p-3 space-y-1
+  }
+
+  /* Debug Classes Start for dev */
+  .debug{
+    @apply border border-red-500
+  }
+  .tile-design{
+    @apply bg-background dark:bg-su_enable_bg text-su_ternary text-xs flex items-center gap-2 font-semibold p-2 rounded-xs
+  }
+
+  .trade-summary{
+    @apply p-2 bg-su_primary_bg absolute left-0 -top-9 rounded-tr-sm font-semibold w-full text-sm
+  }
+
+  .action-popover-action-item{
+    @apply w-full flex items-center gap-1.5 lg:gap-2 py-1 px-1 rounded-sm hover:bg-su_active_bg text-xs font-semibold
+  }
+
+  .room-layout-container{
+    @apply min-h-screen w-full space-y-4 absolute top-0 left-0 su-px bg-su_primary_bg pt-60 lg:pt-36
+  }
+
+  .room-content-section{
+    @apply grid lg:grid-cols-2 gap-4 !mb-32
+  }
+
+  .room-footer{
+    @apply fixed left-0 bottom-0 flex items-center justify-between su-px py-2.5 w-full z-50 bg-su_secondary_bg border-t border-t-su_enable_bg
+  }
+
+  .bronze-gradient-bg{
+    @apply bg-gradient-to-br from-su_bronze_medium via-su_bronze_light to-su_bronze_dark
+  }
+
+  .silver-gradient-bg{
+    @apply bg-gradient-to-br from-su_silver_light to-su_silver_medium
+  }
+
+  .golden-gradient-bg{
+    @apply bg-gradient-to-br from-su_golden_light via-su_golden_medium to-su_golden_dark
+  }
+  /* Debug Classes End for dev */
+}
+
+@layer components{
+  .hide-number-input-buttons::-webkit-outer-spin-button,
+  .hide-number-input-buttons::-webkit-inner-spin-button {
+    @apply m-0;
+    @apply appearance-none;
+  }
+  /* Hide the default arrow buttons in Firefox */
+  .hide-number-input-buttons[type="number"] {
+    appearance: textfield;
+  }
+}
+
+.animate-bounce-once {
+  animation: bounce 1s ease-in-out forwards;
+}
+
+@keyframes bounce {
+  0%{
+    transform: translateY(-25%) translateX(0); 
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0) translateX(0); 
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+  75%{
+    transform: translateY(-25%) translateX(0); 
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  100%{
+    transform: translateY(0%) translateX(0); 
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+}
+
+
