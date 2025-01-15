@@ -31,7 +31,7 @@ jobs:
 
       # Zip the build artifact
       - name: Zip artifact for deployment
-        run: zip -r release.zip ./dist
+        run: zip -r release.zip ./dist server.js package.json package-lock.json
 
       # Upload artifact for deployment job
       - name: Upload artifact for deployment job
