@@ -23,9 +23,13 @@ jobs:
         with:
           node-version: '20.x'
 
+      # Install dependencies  
+      - name: Install dependencies
+        run: npm install          
+
       # Zip the build artifact
       - name: Zip artifact for deployment
-        run: zip -r release.zip ./dist
+        run: zip -r release.zip ./dist server.js package.json package-lock.json node_modules
 
       # Upload artifact for deployment job
       - name: Upload artifact for deployment job
@@ -59,3 +63,4 @@ jobs:
           app-name: 'swapuptest-web'
           package: release.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3738AA004D7C4C0F82DC736445930F00 }}
+          startup-command: npm start
