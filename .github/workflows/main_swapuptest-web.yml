@@ -59,4 +59,3 @@ jobs:
           app-name: 'swapuptest-web'
           package: release.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3738AA004D7C4C0F82DC736445930F00 }}
-          startup_command: node ./dist/index.js
