@@ -6,7 +6,7 @@ name: Build and deploy Vite React app to Azure Web App - swapuptest-web
 on:
   push:
     branches:
-      - main
+      - deploy
   workflow_dispatch:
 
 jobs:
@@ -23,11 +23,27 @@ jobs:
         with:
           node-version: '20.x'
 
-      # Install dependencies and build the app
-      - name: Install dependencies and build
+      # Create a new minimal package.json for server-side dependencies
+      - name: Create minimal package.json for server
         run: |
-          npm install
-          npm run build
+          echo '{
+            "name": "swapup-frontend",
+            "version": "1.0.0",
+            "type": "module", 
+            "dependencies": {
+              "express": "^4.19.2",
+              "serve-static": "^1.15.0",
+              "connect-history-api-fallback": "^2.0.0",
+              "dotenv": "^16.0.3"
+            },
+            "scripts": {
+              "start": "node server.js"
+            }
+          }' > package.json
+
+      # Install dependencies  
+      - name: Install dependencies
+        run: npm install          
 
       # Zip the build artifact
       - name: Zip artifact for deployment
