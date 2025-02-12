@@ -22,4 +22,3 @@ lerna-debug.log*
 # Env file
 .env
 node_modules
-dist
